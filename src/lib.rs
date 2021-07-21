@@ -12,25 +12,25 @@ impl<const N: usize> Key<{ N }> {
 }
 
 impl From<u128> for Key<16> {
-    pub fn from(k: u128) -> Self {
+    fn from(k: u128) -> Self {
         Self(k.to_le_bytes().to_vec().into_boxed_slice())
     }
 }
 
 impl From<u64> for Key<8> {
-    pub fn from(k: u64) -> Self {
+    fn from(k: u64) -> Self {
         Self(k.to_le_bytes().to_vec().into_boxed_slice())
     }
 }
 
 impl From<u32> for Key<4> {
-    pub fn from(k: u32) -> Self {
+    fn from(k: u32) -> Self {
         Self(k.to_le_bytes().to_vec().into_boxed_slice())
     }
 }
 
 impl<const N: usize> From<[u8; N]> for Key<{ N }> {
-    pub fn from(k: [u8; N]) -> Self {
+    fn from(k: [u8; N]) -> Self {
         Self(k.to_vec().into_boxed_slice())
     }
 }
